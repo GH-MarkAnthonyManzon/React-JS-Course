@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercises-React</title>
+
+    <style>
+        .on-btn {
+            background-color: rgb(25, 135, 84);
+            color: white;
+            border-radius: 5px;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        .off-btn {
+            background-color: rgb(220, 53, 69);
+            color: white;
+            border-radius: 5px;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+    </style>
+
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+   
+    <script type="text/babel"> 
+
+    function Switch() {
+
+        const [isButtonOn, setIsButtonOn] = React.useState(true);
+        function toggleButton() {
+            setIsButtonOn(!isButtonOn);
+        }
+
+
+
+        return (
+            <>
+                <button 
+                    className={isButtonOn ? "on-btn" : "off-btn"}
+                    onClick={toggleButton}>
+                        {isButtonOn ? "ON" : "OFF"}
+                </button>
+            </>
+        );
+    }
+    
+        const container = document.querySelector('.js-container');
+        ReactDOM.createRoot(container).render(<Switch />);
+    </script>
+  </body>
+</html>
