@@ -1,0 +1,13 @@
+.not-found-message {
+    /* text-align: center;
+    font-size: 24px;
+    margin-top: 150px;
+    color: black; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 24px;
+    color: black;
+}
