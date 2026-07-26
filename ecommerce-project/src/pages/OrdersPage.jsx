@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 import './OrdersPage.css';
 import { Header } from '../components/Header';
+import BuyAgainIcon from '../assets/images/icons/buy-again.png';
 
 export function OrdersPage() {
   return (
@@ -47,7 +48,7 @@ export function OrdersPage() {
                 <button className="buy-again-button button-primary">
                   <img
                     className="buy-again-icon"
-                    src="images/icons/buy-again.png"
+                    src={BuyAgainIcon}
                   />
                   <span className="buy-again-message">Add to Cart</span>
                 </button>
@@ -74,7 +75,7 @@ export function OrdersPage() {
                 <button className="buy-again-button button-primary">
                   <img
                     className="buy-again-icon"
-                    src="images/icons/buy-again.png"
+                    src={BuyAgainIcon}
                   />
                   <span className="buy-again-message">Add to Cart</span>
                 </button>
@@ -121,7 +122,7 @@ export function OrdersPage() {
                 <button className="buy-again-button button-primary">
                   <img
                     className="buy-again-icon"
-                    src="images/icons/buy-again.png"
+                    src={BuyAgainIcon}
                   />
                   <span className="buy-again-message">Add to Cart</span>
                 </button>
