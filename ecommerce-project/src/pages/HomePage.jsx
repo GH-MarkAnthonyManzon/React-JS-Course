@@ -6,10 +6,9 @@ import { Header } from '../components/Header';
 
 import CheckMarkIcon from '../assets/images/icons/checkmark.png';
 
-export function HomePage() {
+export function HomePage({ cart }) {
 
   const [ products, setProducts ] = useState([]);
-  const [ cart, setCart ] = useState([]);
 
   useEffect(() => {
     
@@ -17,12 +16,6 @@ export function HomePage() {
     axios.get('/api/products')
       .then((response) => {
         setProducts(response.data);
-      });
-
-    // Fetch cart items
-    axios.get('/api/cart-items')
-      .then((response) => {
-        setCart(response.data);
       });
 
   }, []);
