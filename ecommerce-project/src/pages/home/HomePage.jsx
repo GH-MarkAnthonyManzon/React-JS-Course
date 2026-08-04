@@ -1,24 +1,22 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-import './HomePage.css';
-import { Header } from '../../components/Header';
-import { ProductsGrid } from './ProductsGrid';
+import "./HomePage.css";
+import { Header } from "../../components/Header";
+import { ProductsGrid } from "./ProductsGrid";
 
-import CheckMarkIcon from '../../assets/images/icons/checkmark.png';
+import CheckMarkIcon from "../../assets/images/icons/checkmark.png";
 
 export function HomePage({ cart }) {
-
-  const [ products, setProducts ] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    
-    // Fetch products
-    axios.get('/api/products')
-      .then((response) => {
-        setProducts(response.data);
-      });
+    const getHomeData = async () => {
+      const response = await axios.get("/api/products");
+      setProducts(response.data);
+    };
 
+    getHomeData();
   }, []);
 
   return (
