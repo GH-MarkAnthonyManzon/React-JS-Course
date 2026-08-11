@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink } from 'react-router';
 import './header.css';
 import SearchIcon from '../assets/images/icons/search-icon.png';
@@ -6,6 +7,15 @@ import LogoWhite from '../assets/images/logo-white.png';
 import MobileLogoWhite from '../assets/images/mobile-logo-white.png';
 
 export function Header({ cart }) {
+  const [search, setSearch] = useState("");
+
+  const updateSearchInput = (event) => {
+    setSearch(event.target.value);
+  }
+
+  const searchProducts = () => {
+    console.log(search);
+  }
 
   let totalQuantity = 0;
 
@@ -23,9 +33,9 @@ export function Header({ cart }) {
         </div>
 
         <div className="middle-section">
-          <input className="search-bar" type="text" placeholder="Search" />
+          <input className="search-bar" type="text" placeholder="Search" value={search} onChange={updateSearchInput} />
 
-          <button className="search-button">
+          <button className="search-button" onClick={searchProducts}>
             <img className="search-icon" src={SearchIcon} />
           </button>
         </div>
