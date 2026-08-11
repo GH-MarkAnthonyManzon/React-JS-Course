@@ -11,17 +11,21 @@ export function CartItemDetails({ cartItem, loadCart }) {
     await loadCart();
   };
 
-  const updateQuantity = () => {
+  const updateQuantity = async () => {
     if (isUpdatingQuantity) {
+      await axios.put(`/api/cart-items/${cartItem.productId}`, {
+        quantity: Number(quantity),
+      });
+      await loadCart();
       setIsUpdatingQuantity(false);
     } else {
       setIsUpdatingQuantity(true);
     }
-  }
+  };
 
   const updateQuantityInput = (event) => {
     setQuantity(event.target.value);
-  }
+  };
 
   return (
     <>
@@ -34,10 +38,17 @@ export function CartItemDetails({ cartItem, loadCart }) {
         </div>
         <div className="product-quantity">
           <span>
-            Quantity: {isUpdatingQuantity 
-              ? <input type="text" className="quantity-textbox" value={quantity} onChange={updateQuantityInput}/>
-              : <span className="quantity-label">{cartItem.quantity}</span>
-            }
+            Quantity:{" "}
+            {isUpdatingQuantity ? (
+              <input
+                type="text"
+                className="quantity-textbox"
+                value={quantity}
+                onChange={updateQuantityInput}
+              />
+            ) : (
+              <span className="quantity-label">{cartItem.quantity}</span>
+            )}
           </span>
           <span
             className="update-quantity-link link-primary"
