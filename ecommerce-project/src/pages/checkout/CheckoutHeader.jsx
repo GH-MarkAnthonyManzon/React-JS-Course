@@ -17,21 +17,21 @@ export function CheckoutHeader({ cart }) {
       <div className="header-content">
         <div className="checkout-header-left-section">
           <Link to="/">
-            <img className="logo" src={Logo} />
-            <img className="mobile-logo" src={MobileLogo} />
+            <img className="logo" data-testid="checkout-header-logo" src={Logo} />
+            <img className="mobile-logo" data-testid="checkout-header-mobile-logo" src={MobileLogo} />
           </Link>
         </div>
 
         <div className="checkout-header-middle-section">
           Checkout (
-          <Link className="return-to-home-link" to="/">
+          <Link className="return-to-home-link" data-testid="checkout-header-return-to-home" to="/">
             {totalQuantity} items
           </Link>
           )
         </div>
 
         <div className="checkout-header-right-section">
-          <img src={CheckoutLockIcon} />
+          <img src={CheckoutLockIcon} data-testid="checkout-header-lock-icon" />
         </div>
       </div>
     </div>
