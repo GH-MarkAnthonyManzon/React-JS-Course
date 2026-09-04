@@ -1,9 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, type JSX } from "react";
 import { Chatbot } from "supersimpledev";
 import { ChatInput } from "./components/ChatInput";
 import ChatMessages from "./components/ChatMessages";
 import "./App.css";
 import RobotProfileImage from "./assets/robot.png";
+
+type ChatMessage = {
+  message: string | JSX.Element;
+  sender: "user" | "robot";
+  id: string;
+  time?: string;
+};
 
 function App() {
   useEffect(() => {
@@ -38,9 +45,18 @@ function App() {
   // const chatMessages = array[0]; // de-structure #1
   // const setChatMessages = array[1];
 
-  const [chatMessages, setChatMessages] = useState(
-    JSON.parse(localStorage.getItem("messages")) || [],
-  );
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>(() => {
+  const saved = localStorage.getItem("messages");
+
+  if (!saved) return [];
+
+    try {
+      const parsed = JSON.parse(saved);
+      return Array.isArray(parsed) ? (parsed as ChatMessage[]) : [];
+    } catch {
+      return [];
+    }
+  }); 
 
   useEffect(() => {
     localStorage.setItem("messages", JSON.stringify(chatMessages));
