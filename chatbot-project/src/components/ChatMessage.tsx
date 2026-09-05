@@ -3,7 +3,13 @@ import RobotProfileImage from '../assets/robot.png';
 import UserProfileImage from '../assets/lebron_james.jpg';
 import './ChatMessage.css';
 
-export function ChatMessage({ message, sender, time }) {
+type ChatMessageProps = {
+    message: string;
+    sender: string;
+    time: string;
+};
+
+export function ChatMessage({ message, sender, time }: ChatMessageProps) {
           // DE-STRUCTURE #2 ^             
   // const message = props.message;
   // const sender = props.sender;
