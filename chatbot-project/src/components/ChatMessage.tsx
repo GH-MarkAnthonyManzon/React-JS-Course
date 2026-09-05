@@ -1,12 +1,13 @@
+import { type JSX } from 'react';
 import dayjs from 'dayjs';
 import RobotProfileImage from '../assets/robot.png';
 import UserProfileImage from '../assets/lebron_james.jpg';
 import './ChatMessage.css';
 
 type ChatMessageProps = {
-    message: string;
-    sender: string;
-    time: string;
+    message: string | JSX.Element;
+    sender: "user" | "robot";
+    time?: string;
 };
 
 export function ChatMessage({ message, sender, time }: ChatMessageProps) {
