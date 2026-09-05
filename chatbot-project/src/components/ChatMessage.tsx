@@ -7,7 +7,7 @@ import './ChatMessage.css';
 type ChatMessageProps = {
     message: string | JSX.Element;
     sender: "user" | "robot";
-    time?: string;
+    time?: number;
 };
 
 export function ChatMessage({ message, sender, time }: ChatMessageProps) {

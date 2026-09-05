@@ -7,7 +7,7 @@ type ChatMessagesProps = {
         message: string | JSX.Element;
         sender: "user" | "robot";
         id: string;
-        time?: string;
+        time?: number;
     }[];
 }
 
